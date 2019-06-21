@@ -1,0 +1,205 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VotingSystemApi</name>
+    </assembly>
+    <members>
+        <member name="T:VotingSystemApi.Controllers.AdminController">
+            <summary>
+            Admin endpoint
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.AdminController.GetVotesForElection(System.Int32)">
+            <summary>
+            Get all current votes for Election
+            </summary>
+            <param name="electionId">Unique Election ID</param>
+            <returns>List of Votes</returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.AdminController.CastPaperVote(VotingSystemEntities.ViewModels.VoteViewModel)">
+            <summary>
+            Cast a 'Paper' Vote
+            </summary>
+            <param name="vote"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VotingSystemApi.Controllers.AreaController">
+            <summary>
+            Area endpoint
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.AreaController.GetAllAreas">
+            <summary>
+            Get all areas
+            </summary>
+            <returns>List of Areas</returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.AreaController.AddArea(VotingSystemEntities.AreaViewModel)">
+            <summary>
+            Add an area
+            </summary>
+            <param name="area"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.AreaController.UpdateArea(VotingSystemEntities.AreaViewModel)">
+            <summary>
+            Update an area
+            </summary>
+            <param name="area"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.AreaController.DeleteArea(System.Int32)">
+            <summary>
+            Delete a area
+            </summary>
+            <param name="areaId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VotingSystemApi.Controllers.CandidateController">
+            <summary>
+            Endpoint for getting list of candidates for selected election
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.CandidateController.GetCandidateList(System.Int32,System.Int32)">
+            <summary>
+            Gets list of candidates for Election and Area
+            </summary>
+            <param name="electionId">The Election in question</param>
+            <param name="userId">User accessing the list</param>
+            <returns type="CandidateViewModel[]">List of CandidateViewModel for Election and User</returns>
+        </member>
+        <member name="T:VotingSystemApi.Controllers.ElectionController">
+            <summary>
+            Endpoint for getting list of active elections
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.ElectionController.GetElectionList(System.Int32)">
+            <summary>
+            Get list of all active elections
+            </summary>
+            <returns type="ElectionListViewModel"></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.ElectionController.GetAllElections">
+            <summary>
+            Get list of all Elections not marked as dormant
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.ElectionController.AddUserToHasVoted(VotingSystemEntities.ViewModels.HasVotedViewModel)">
+            <summary>
+            Add User and Eleciton to joining table HasVoted, to determine is User has already voted in election
+            </summary>
+            <param name="hasVoted"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.ElectionController.AddElection(VotingSystemEntities.ElectionViewModel)">
+            <summary>
+            Add an election
+            </summary>
+            <param name="election"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.ElectionController.UpdateElection(VotingSystemEntities.ElectionViewModel)">
+            <summary>
+            Update an election
+            </summary>
+            <param name="election"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.ElectionController.DeleteElection(System.Int32)">
+            <summary>
+            Delete an election
+            </summary>
+            <param name="electionId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VotingSystemApi.Controllers.PartyController">
+            <summary>
+            Party endpoint
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.PartyController.GetAllParties">
+            <summary>
+            Get all parties
+            </summary>
+            <returns>List of Parties</returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.PartyController.AddParty(VotingSystemEntities.PartyViewModel)">
+            <summary>
+            Add a party
+            </summary>
+            <param name="party"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.PartyController.UpdateParty(VotingSystemEntities.PartyViewModel)">
+            <summary>
+            Update a party
+            </summary>
+            <param name="party"></param>
+            <returns></returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.PartyController.DeleteParty(System.Int32)">
+            <summary>
+            Delete a party
+            </summary>
+            <param name="partyId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VotingSystemApi.Controllers.RegistrationController">
+            <summary>
+            Endpoint for creating a new user
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.RegistrationController.RegisterUser(VotingSystemEntities.ViewModels.UserViewModel)">
+            <summary>
+            Register a new user
+            </summary>
+            <param name="user">User to be created</param>
+            <returns type="statusCode(200)"></returns>
+        </member>
+        <member name="T:VotingSystemApi.Controllers.UserController">
+            <summary>
+            Endpoint for logging in
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.UserController.Login(VotingSystemEntities.ViewModels.LoginViewModel)">
+            <summary>
+            Login user into the system and return JWT token
+            </summary>
+            <param name="user">Username and password</param>
+            <returns type="JWTToken">JWT token to be stored on the client application</returns>
+        </member>
+        <member name="T:VotingSystemApi.Controllers.VoteController">
+            <summary>
+            Endpoint for casting a vote in an election
+            </summary>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.VoteController.CastVote(VotingSystemEntities.ViewModels.VoteViewModel)">
+            <summary>
+            Cast a vote from a user
+            </summary>
+            <param name="vote">Vote model</param>
+            <returns type="statusCodes(200)">200 status code</returns>
+        </member>
+        <member name="M:VotingSystemApi.Controllers.VoteController.GetAllVotesForElection(System.Int32)">
+            <summary>
+            Get's all votes for specific election
+            </summary>
+            <param name="electionId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:VotingSystemApi.Hub.IVoteHub">
+            <summary>
+            Interface used when initialising VoteHub
+            As it's an interface, you can use DI to inject into the ApiControllers
+            </summary>
+        </member>
+        <member name="T:VotingSystemApi.Hub.VoteHub">
+            <summary>
+            VoteHub, inherits from Hub which 
+            takes the interface face as a parameter.
+            This is to allow DI into the ApiControllers
+            </summary>
+        </member>
+    </members>
+</doc>
